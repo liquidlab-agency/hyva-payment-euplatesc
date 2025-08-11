@@ -1,0 +1,22 @@
+<?php
+
+/**
+ * Copyright © - LiquidLab Agency - All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+
+declare(strict_types=1);
+
+use Magento\Framework\Escaper;
+use Magento\Framework\View\Element\Template;
+
+/** @var Template $block */
+/** @var Escaper $escaper */
+
+?>
+<?php /* The wire Payment Method directive is required to sit in the root DOM element. */ ?>
+<div>
+    <p class="p-4 bg-gray-100 rounded-lg">
+        <?= __('You will be redirected to the EuPlatesc payment gateway to complete your payment.') ?>
+    </p>
+</div>
