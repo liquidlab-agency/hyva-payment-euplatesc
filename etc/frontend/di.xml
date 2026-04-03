@@ -26,4 +26,9 @@
             </argument>
         </arguments>
     </type>
+
+    <type name="Hyva\Checkout\Magewire\Checkout\Payment\MethodList">
+        <plugin name="liquidlab_hyva_euplatesc_method_list"
+                type="Liquidlab\HyvaEuPlatesc\Plugin\Magewire\Checkout\Payment\MethodListPlugin" />
+    </type>
 </config>
