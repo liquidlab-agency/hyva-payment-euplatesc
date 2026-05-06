@@ -11,15 +11,10 @@ class MethodListPlugin
 {
     private const PAYMENT_METHOD_CODE = 'eppay';
 
-    protected SessionCheckout $sessionCheckout;
-    protected PaymentMethodManagementInterface $paymentMethodManagement;
-
     public function __construct(
-        SessionCheckout $sessionCheckout,
-        PaymentMethodManagementInterface $paymentMethodManagement
+        protected SessionCheckout $sessionCheckout,
+        protected PaymentMethodManagementInterface $paymentMethodManagement
     ) {
-        $this->sessionCheckout = $sessionCheckout;
-        $this->paymentMethodManagement = $paymentMethodManagement;
     }
 
     public function afterBoot(MethodList $subject): void
