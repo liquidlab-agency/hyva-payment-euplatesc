@@ -2,6 +2,8 @@
 
 This module provides compatibility between the EuroPayment_EuPlatesc payment module and Hyva Checkout.
 
+![EuPlatesc payment method in Hyva Checkout](media/screenshot.png)
+
 ## Installation
 
 ### Composer Installation
@@ -31,6 +33,9 @@ composer require liquidlab/module-euplatesc-hyva
 
 - Integrates EuPlatesc payment method with Hyva Checkout
 - Provides a seamless checkout experience for customers using EuPlatesc payment gateway
+- Optional checkout description text and payment-method icons, shown next to the method at checkout
+
+![EuPlatesc method at checkout with its configurable payment icons](media/with_icons.png)
 
 ## Requirements
 

@@ -11,6 +11,9 @@
         <sequence>
             <module name="Hyva_Checkout"/>
             <module name="EuroPayment_EuPlatesc"/>
+            <!-- The payment-icon view model extends Hyvä core SvgIcons. Self-contained — the module
+                 ships its own SVGs and needs only the Hyvä theme module sequenced below. -->
+            <module name="Hyva_Theme"/>
         </sequence>
     </module>
 </config>

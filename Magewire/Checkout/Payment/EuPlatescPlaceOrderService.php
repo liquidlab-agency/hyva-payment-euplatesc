@@ -54,7 +54,7 @@ class EuPlatescPlaceOrderService extends AbstractPlaceOrderService
             // the existing EpPay implementation and official EuPlatesc docs.
             $redirectUrl = $this->epPay->getPostData($incrementId);
 
-            // SEC-13: do NOT log $redirectUrl — it carries the fp_hash signature and PII
+            // Do NOT log $redirectUrl — it carries the fp_hash signature and PII
             // (name/email) in the query string. Log only a non-sensitive breadcrumb.
             $this->logger->info('EuPlatesc: Redirect URL generated for order ' . $incrementId);
 

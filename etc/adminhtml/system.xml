@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © - LiquidLab Agency - All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <!-- Extend the existing EuPlatesc payment method group (magento2-euplatesc-payment) with the
+             checkout display fields. Store-view scoped so text/icons can differ per language. -->
+        <section id="payment">
+            <group id="eppay">
+                <field id="checkout_description" translate="label comment" type="textarea" sortOrder="11"
+                       showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Checkout Description Text</label>
+                    <comment><![CDATA[Plain text shown next to the EuPlatesc method on checkout. HTML is not
+                        rendered (the value is escaped for checkout stability and security). Leave empty to use
+                        the default text.]]></comment>
+                </field>
+                <field id="checkout_icons" translate="label comment" type="multiselect" sortOrder="12"
+                       showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Payment Method Icons</label>
+                    <source_model>Liquidlab\HyvaEuPlatesc\Model\Config\Source\PaymentMethodIcons</source_model>
+                    <frontend_model>Liquidlab\HyvaEuPlatesc\Block\Adminhtml\System\Config\PaymentIconSelector</frontend_model>
+                    <backend_model>Liquidlab\HyvaEuPlatesc\Model\Config\Backend\PaymentMethodIcons</backend_model>
+                    <comment><![CDATA[Tick the icons to show next to the EuPlatesc method on checkout — each is shown
+                        with its actual image. The list combines
+                        this module's own payment logos with any payment icons managed in LIQUIDLAB Icon Manager Module
+                        (LIQUIDLAB → Configuration → Icons, Type = Payment). Icon Manager is part of LIQUID FRAMEWORK: if it is not installed,
+                        only the bundled SVGs are listed.]]></comment>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

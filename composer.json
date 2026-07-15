@@ -12,6 +12,7 @@
     "require": {
         "php": "~8.2|~8.3",
         "magento/framework": "103.0.*",
+        "hyva-themes/magento2-theme-module": "^1.3",
         "hyva-themes/magento2-hyva-checkout": "^1.3.0",
         "liquidlab-agency/magento2-euplatesc-payment": "^2.0"
     },

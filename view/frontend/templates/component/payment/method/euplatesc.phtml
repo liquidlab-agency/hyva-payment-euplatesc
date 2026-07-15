@@ -7,16 +7,38 @@
 
 declare(strict_types=1);
 
+use Liquidlab\HyvaEuPlatesc\ViewModel\CheckoutInformation;
 use Magento\Framework\Escaper;
 use Magento\Framework\View\Element\Template;
 
 /** @var Template $block */
 /** @var Escaper $escaper */
 
+/** @var CheckoutInformation $checkoutInformation */
+$checkoutInformation = $block->getData('checkout_information');
+
+// Admin-configurable text (plain text, escaped — no HTML rendered) with the original translated
+// string as the default when unset; plus admin-selected payment icons. Each icon's HTML is produced by its
+// own provider via IconRegistry — this module's bundled SVGs render inline (Hyvä SvgIcons) and external
+// providers (e.g. Icon Manager) return their own escaped markup — so the values here are already safe.
+$description = $checkoutInformation ? $checkoutInformation->getDescription() : '';
+$icons = $checkoutInformation ? $checkoutInformation->getRenderedIcons(48, 32) : [];
+
 ?>
 <?php /* The wire Payment Method directive is required to sit in the root DOM element. */ ?>
 <div>
-    <p class="p-4 bg-gray-100 rounded-lg">
-        <?= __('You will be redirected to the EuPlatesc payment gateway to complete your payment.') ?>
+    <p class="p-4 bg-white rounded-lg">
+        <?= $escaper->escapeHtml(
+            $description !== ''
+                ? $description
+                : (string) __('You will be redirected to the EuPlatesc payment gateway to complete your payment.')
+        ) ?>
     </p>
+    <?php if ($icons): ?>
+        <div class="flex flex-wrap items-center gap-2 mt-3" aria-label="<?= $escaper->escapeHtmlAttr(__('Accepted payment methods')) ?>">
+            <?php foreach ($icons as $iconHtml): ?>
+                <?= /* @noEscape provider-rendered safe icon HTML (inline SVG or escaped <img>) */ $iconHtml ?>
+            <?php endforeach; ?>
+        </div>
+    <?php endif; ?>
 </div>

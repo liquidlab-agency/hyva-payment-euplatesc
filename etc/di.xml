@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © - LiquidLab Agency - All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <!-- Give this module's OWN payment-icon view model its icon-path prefix GLOBALLY (every area),
+         so both checkout (frontend) and the admin "Payment Method Icons" selector (adminhtml, rendered under
+         frontend store emulation) resolve the bundled SVGs in view/frontend/web/svg/payment. Verified: without
+         this, the admin-area PaymentIcons keeps the SvgIcons default prefix and no bundled icon renders. -->
+    <type name="Liquidlab\HyvaEuPlatesc\ViewModel\PaymentIcons">
+        <arguments>
+            <argument name="iconPathPrefix" xsi:type="string">Liquidlab_HyvaEuPlatesc::svg/payment</argument>
+        </arguments>
+    </type>
+</config>

@@ -11,7 +11,14 @@
         <referenceBlock name="checkout.payment.methods">
             <block name="checkout.payment.method.euplatesc"
                    as="eppay"
-                   template="Liquidlab_HyvaEuPlatesc::component/payment/method/euplatesc.phtml"/>
+                   template="Liquidlab_HyvaEuPlatesc::component/payment/method/euplatesc.phtml">
+                <arguments>
+                    <!-- Icon rendering now flows through CheckoutInformation -> IconRegistry (own SVGs +
+                         event-driven external providers), so the PaymentIcons view model is no longer
+                         passed here; the registry injects it to render this module's own icons. -->
+                    <argument name="checkout_information" xsi:type="object">Liquidlab\HyvaEuPlatesc\ViewModel\CheckoutInformation</argument>
+                </arguments>
+            </block>
         </referenceBlock>
     </body>
 </page>

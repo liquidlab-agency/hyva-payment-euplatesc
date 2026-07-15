@@ -32,4 +32,7 @@
                 type="Liquidlab\HyvaEuPlatesc\Plugin\Magewire\Checkout\Payment\MethodListPlugin" />
     </type>
 
+    <!-- PaymentIcons' iconPathPrefix moved to the GLOBAL etc/di.xml so the admin "Payment Method
+         Icons" selector (adminhtml area) resolves the same bundled SVGs as checkout does here. -->
+
 </config>
