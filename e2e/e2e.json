@@ -1,0 +1,5 @@
+{
+  "name": "hyva-payment-euplatesc",
+  "description": "EuPlatesc in the Hyvä checkout: the method shows its notice, an order goes to the gateway signed for its total with this store's return and IPN URLs, coming back restores the cart, and the IPN endpoint turns away requests it can't verify without changing the order.",
+  "requires": ["liquidlab-agency/magento2-euplatesc-payment"]
+}
