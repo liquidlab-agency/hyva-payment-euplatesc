@@ -1,2 +1,5 @@
 # Auto detect text files and perform LF normalization
 * text=auto
+
+# Tests are fetched from git by e2e-kit, not shipped to stores in the Composer package.
+/e2e export-ignore
