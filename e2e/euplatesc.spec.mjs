@@ -23,9 +23,9 @@ function amount(shown) {
 
 const cents = (value) => Math.round(Number(value) * 100);
 
-/** Fills the cart with the profile's product, takes the checkout to payment and picks EuPlatesc. */
+/** Fills the cart with the profile's cart product, takes the checkout to payment and picks EuPlatesc. */
 async function toEuPlatesc(page, store, email) {
-    await addToCart(page, store.product);
+    await addToCart(page, store.cartProduct ?? store.product);
     await openCheckout(page);
     await fillCheckoutAddress(page, store.address, email);
     await chooseShipping(page, store.shipping[0]);
